@@ -1,15 +1,7 @@
 set encoding=utf-8
-let g:ycm_server_python_interpreter = "/usr/bin/python"
 let vim_markdown_preview_github=1
 
 set number relativenumber
-
-" Snippets
-let g:UltiSnipsExpandTrigger="<C-k>"
-let g:UltiSnipsJumpForwardTrigger="<C-k>"
-let g:UltiSnipsJumpBackwardTrigger="<C-j>"
-
-let g:UltiSnipsEditSplit="vertical"
 
 let g:easyescape_chars = { "j": 1, "k": 1 }
 let g:easyescape_timeout = 100
@@ -18,7 +10,8 @@ cnoremap kj <ESC>
 
 :set tabstop=2
 :set shiftwidth=0
-:set expandtab
+
+set tags=./tags;/
 
 " Statusline
 let g:airline_powerline_fonts = 1
@@ -50,8 +43,8 @@ set number
 
 " Shortcuts
 map <tab>: <C-W>
+nnoremap <silent> ,m :tag<CR>
 
-" Shortcuts
 function MakeCTags()
 	normal! !ctags -R
 endfunction
@@ -61,4 +54,6 @@ au BufWinLeave * mkview
 au BufWinEnter * silent loadview
 
 " Save marks
-set viminfo
+"set viminfo
+
+"source ~/.vimrc_cscope
